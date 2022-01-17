@@ -1,0 +1,110 @@
+
+:root {
+    --color-title-big: #ffde9c;
+    --color-gra-top: #232325;
+    --color-gra-middle: #7a6d5d;
+    --color-gra-bottom: #80796b;
+    --color-gra-left: #a7987b;
+    --color-gra-right: #18181a;
+    --color-text-white: #ECECEA;
+    --color-background: rgba(167,152,123,.5);
+}
+
+.test-line {
+    border: 1px solid red;
+}
+
+body {
+    font-family: "Roboto Condensed", Helvetica, Arial, sans-serif;
+    /*
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+    */
+    padding-top: 45px;
+}
+
+.zoom-effect {
+    transition: .1s;
+}
+
+.zoom-effect:hover {
+    transform: scale(1.05);
+}
+
+.card-shop {
+    background: none;
+}
+
+.card-body-shop {
+    background: rgba(240, 232, 215, 0.541) !important;
+}
+
+.card-item {
+    border-color: var(--color-gra-middle) !important;
+}
+
+.card-body-item {
+    background: linear-gradient(to bottom, var(--color-gra-top),var(--color-gra-bottom));
+    background-color: linear-gradient(to bottom, var(--color-gra-top),var(--color-gra-bottom));
+}
+
+.card-footer-item {
+    background: linear-gradient(to right, var(--color-gra-left), var(--color-gra-right));
+    color: var(--color-text-white);
+}
+
+.item-hover-effect {
+    transition: .1s all;
+}
+
+.item-hover-effect:hover {
+    cursor: pointer;
+    border: 1px solid var(--color-title-big) !important;
+}
+
+.card-footer-shop {
+    background: rgba(248, 233, 201, 0.473) !important;
+}
+
+.nav .active {
+    background: #ffd970 !important;
+    color: var(--color-gra-right) !important;
+}
+
+.nav .nav-link {
+    color: rgb(255, 197, 38);
+}
+
+.bg-dark-semi {
+    background: rgba(0, 0, 0, .5);
+}
+
+.item-shadow {
+    -webkit-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.35);
+-moz-box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.35);
+box-shadow: 0px 0px 14px 3px rgba(0,0,0,0.35);
+}
+
+.bg-nice-dark {
+    background: #1c2127 !important;
+}
+
+.card-item-new, .card-item-new:hover, .card-item-new:active {
+    text-decoration: none;
+}
+
+.card-item-new {
+    transition: .2s all;
+}
+
+.card-item-new:hover {
+    transform: scale(1.025);
+}
+
+.ls-4 {
+    letter-spacing: 4px;
+}
