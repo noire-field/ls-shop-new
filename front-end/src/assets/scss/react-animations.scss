@@ -47,3 +47,16 @@
  .fade-in-exit-active{
     transition: opacity 500ms;
  }
+
+@keyframes simple-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.simple-fade-in {
+    -webkit-animation: simple-fade-in 0.2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: simple-fade-in 0.2s; /* Firefox < 16 */
+        -ms-animation: simple-fade-in 0.2s; /* Internet Explorer */
+         -o-animation: simple-fade-in 0.2s; /* Opera < 12.1 */
+            animation: simple-fade-in 0.2s;
+}

@@ -5,7 +5,7 @@ import StoreContent from '../components/StoreContent';
 
 function Store() {
     return (
-        <div className="container-fluid">
+        <div className="container-fluid simple-fade-in">
             <div className="row">
                 <Sidebar className="mb-2"/>
                 <StoreContent/>
