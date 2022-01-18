@@ -9,7 +9,8 @@ import Welcome from './pages/Welcome';
 import Loading from './components/Loading';
 
 import Logger from './utils/logger';
-//import axios from './utils/axios';
+import axios from './utils/axios';
+import { MapItemsToCategories } from './utils/items';
 
 import { AppSetFetching, AppSetLoading, AppSetStatus } from './store/actions/app.action';
 import { StoreSetCategories } from './store/actions/store.action'
@@ -30,62 +31,16 @@ function App() {
 
 				break;
 			case 1: // Now loading
-				//axios.get()
-				setTimeout(() => {
-					dispatch(StoreSetCategories([
-						{
-							title: 'All Items',
-							items: [
-								{
-									id: 1,
-									title: 'Zombie Plague 10.000 AP',
-									price: {
-										dollar: 4.99,
-										credit: 499
-									}
-								},
-								{
-									id: 2,
-									title: 'Zombie Escape 25.000 AP',
-									price: {
-										dollar: 9.99,
-										credit: 999
-									}
-								}
-							]
-						},
-						{
-							title: 'Zombie Plague',
-							items: [
-								{
-									id: 1,
-									title: 'Zombie Plague 10.000 AP',
-									price: {
-										dollar: 4.99,
-										credit: 499
-									}
-								},
-							]
-						},
-						{
-							title: 'Zombie Escape',
-							items: [
-								{
-									id: 2,
-									title: 'Zombie Escape 25.000 AP',
-									price: {
-										dollar: 9.99,
-										credit: 999
-									}
-								}
-							]
-						},
-					]));
-					dispatch(AppSetFetching(false));
-					dispatch(AppSetLoading(false));
-					dispatch(AppSetStatus(2));
-					
-				}, 1000);
+				axios.get('/shop-api.php?act=GetShopContent').then(({ data }) => {
+					if(data.success) {
+						dispatch(StoreSetCategories(MapItemsToCategories(data.categories, data.items)));
+						dispatch(AppSetFetching(false));
+						dispatch(AppSetLoading(false));
+						dispatch(AppSetStatus(2));
+					}
+				}).catch((error) => {
+					console.error(`Unable to fetch shop content from API.`);
+				});
 			break;
 		}
 
