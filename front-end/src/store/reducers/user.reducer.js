@@ -4,7 +4,8 @@ const initState = {
     logged: false,
     id: -1,
     username: '',
-    token: ''
+    token: '',
+    credits: 0
 }
 
 const reducer = function(state = initState, action) {

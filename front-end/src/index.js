@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+
 import reportWebVitals from './reportWebVitals';
 import { applyMiddleware, createStore } from 'redux';
 import ReduxThunk from 'redux-thunk';
@@ -14,6 +16,8 @@ import App from './App';
 const store = createStore(reducers, composeWithDevTools(
 	applyMiddleware(ReduxThunk)
 ));
+
+Modal.setAppElement('#root');
 
 ReactDOM.render(
 	<Provider store={store}>

@@ -7,3 +7,9 @@ export const APP_SET_FETCHING = 'APP_SET_FETCHING';
 // State: Store
 export const STORE_SET_CATEGORIES = 'STORE_SET_CATEGORIES';
 export const STORE_SET_VIEWPAGE = 'STORE_SET_VIEWPAGE';
+
+// State: User
+
+// State: Modal
+export const MODAL_LOGIN_TOGGLE = 'MODAL_LOGIN_TOGGLE';
+export const MODAL_REGISTER_TOGGLE = 'MODAL_REGISTER_TOGGLE';

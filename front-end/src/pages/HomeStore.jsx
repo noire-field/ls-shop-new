@@ -13,6 +13,7 @@ function Store() {
             <div className="row">
                 <Sidebar className="mb-2"/>
                 <StoreContent/>
+                
             </div>
         </div>
     )

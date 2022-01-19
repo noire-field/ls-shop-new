@@ -1,10 +1,11 @@
 import React from 'react';
 
 const messages = [
-    'I hope you have a good day.',
-    'Please be safe.',
-    'Thank you for being patient.',
-    'You’re a game changer.'
+    'Loading...'
+    //'I hope you have a good day.',
+    //'Please be safe.',
+    //'Thank you for being patient.',
+    //'You’re a game changer.'
 ]
 
 function GetRandomMessage() {
