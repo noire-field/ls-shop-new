@@ -13,6 +13,7 @@ import axios from './utils/axios';
 import { MapItemsToCategories } from './utils/items';
 
 import { AppSetFetching, AppSetLoading, AppSetStatus } from './store/actions/app.action';
+import { UserLogin } from './store/actions/user.action';
 import { StoreSetCategories } from './store/actions/store.action'
 
 function App() {
@@ -37,11 +38,16 @@ function App() {
 						dispatch(AppSetFetching(false));
 						dispatch(AppSetLoading(false));
 						dispatch(AppSetStatus(2));
+
+						if(data.user) {
+							dispatch(UserLogin(data.user.id, data.user.username, data.user.credits, 'HttpOnly'));
+						}
 					}
 				}).catch((error) => {
 					console.error(`Unable to fetch shop content from API.`);
 				});
 			break;
+			default: return;
 		}
 
 	}, [status, dispatch]);
@@ -51,7 +57,7 @@ function App() {
 			{ status < 2 &&
 				<Welcome/>
 			}
-			{ status == 2 &&
+			{ status === 2 &&
 				<HomeStore/>
 			}
 			<CSSTransition in={loading} timeout={250} classNames="anim-slideup-loading" unmountOnExit>

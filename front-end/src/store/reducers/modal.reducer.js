@@ -5,7 +5,8 @@ const initState = {
         show: false
     },
     register: {
-        show: false
+        show: false,
+        showCompleted: false
     }
 }
 
@@ -15,6 +16,8 @@ const reducer = function(state = initState, action) {
             return {...state, login: { ...state.login, show: action.visible }}
         case Actions.MODAL_REGISTER_TOGGLE:
             return {...state, register: { ...state.register, show: action.visible }}    
+        case Actions.MODAL_REGISTER_COMPLETED_TOGGLE:
+            return {...state, register: { ...state.register, showCompleted: action.visible }}    
         default: return state;
     }
 }

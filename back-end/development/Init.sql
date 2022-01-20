@@ -2,9 +2,21 @@ CREATE TABLE IF NOT EXISTS users (
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(64) NOT NULL,
     hashed_password VARCHAR(128) NOT NULL,
+    token_auth VARCHAR(128),
     credits INT NOT NULL DEFAULT '0',
     created_at DATETIME,
     updated_at DATETIME,
+
+    PRIMARY KEY(id)
+);
+
+CREATE TABLE IF NOT EXISTS user_logs (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    action_title VARCHAR(64),
+    action_content TEXT,
+    user_ip VARCHAR(64),
+    created_at DATETIME,
 
     PRIMARY KEY(id)
 );

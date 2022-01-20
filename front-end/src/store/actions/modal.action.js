@@ -13,3 +13,10 @@ export function ModalRegisterToggle(visible) {
         visible
     }
 }
+
+export function ModalRegisterComplatedToggle(visible) {
+    return {
+        type: Actions.MODAL_REGISTER_COMPLETED_TOGGLE,
+        visible
+    }
+}

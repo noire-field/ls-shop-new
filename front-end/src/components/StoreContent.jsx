@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import GuideAndTerms from "./GuideAndTerms";
+import MyAccount from "./MyAccount";
 import ItemList from "./ItemList";
 
 import Logger from './../utils/logger';
@@ -15,12 +16,13 @@ function StoreContent() {
     var renderContent = null;
 
     switch(viewingPageId) {
+        case -2: renderContent = <MyAccount className="simple-fade-in"/>; break;
         case -1: renderContent = <GuideAndTerms className="simple-fade-in"/>; break;
         default: renderContent = <ItemList className="simple-fade-in" items={items}/>; break;
     }
 
     return (
-        <div className="col-lg-10">
+        <div className="col-lg-10 mt-lg-5 mt-3">
             {renderContent}
         </div>
     )
