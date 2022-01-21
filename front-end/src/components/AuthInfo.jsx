@@ -41,7 +41,7 @@ function AuthInfo(props) {
                     </p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                    <button className={`btn btn-success btn-block btn-sm mr-1`} disabled={viewingPageId == -2}><i class="fas fa-mobile-alt mr-1"></i>Buy Credits</button>
+                    <button className={`btn btn-warning btn-block btn-sm mr-1`} disabled={viewingPageId == -2}><i class="fas fa-mobile-alt mr-1"></i>Buy Credits</button>
                     <p className="my-2"></p>
                     <button onClick={onClickMyAccount} className={`btn btn-primary btn-block btn-sm ml-1`} disabled={viewingPageId == -2}><i className="fas fa-user mr-1"></i>My Account</button>
                 </div>

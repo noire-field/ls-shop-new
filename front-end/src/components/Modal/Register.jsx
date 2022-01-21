@@ -63,7 +63,7 @@ function Register() {
 	}
 
     return (
-        <Modal isOpen={show} onRequestClose={closeModal} style={StyleCompact} contentLabel="Login Modal">
+        <Modal isOpen={show} onRequestClose={closeModal} style={StyleCompact} contentLabel="Register Modal">
 			<div className="px-lg-5 py-lg-4 px-3 py-4">
 				<h3 className="text-center mb-4">Sign Up</h3>
 				<form className="mb-3">

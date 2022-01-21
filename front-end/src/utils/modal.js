@@ -6,6 +6,10 @@ export const StyleCompact = {
 		bottom: 'auto',
 		marginRight: '-50%',
 		transform: 'translate(-50%, -50%)',
-        padding: '0'
-    }
+        padding: '0',
+		zIndex: '99999'
+    },
+	overlay: {
+		zIndex: '99999'
+	}
 }

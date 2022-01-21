@@ -22,7 +22,7 @@ function RegisterCompleted() {
 	}
 
     return (
-        <Modal isOpen={show} onRequestClose={closeModal} style={StyleCompact} contentLabel="Login Modal">
+        <Modal isOpen={show} onRequestClose={closeModal} style={StyleCompact} contentLabel="RegisterCompleted Modal">
 			<div className="px-lg-5 py-lg-4 px-3 py-5">
 				<h3 className="text-center text-success mb-3"><i class="fas fa-check-circle mr-1"></i>Registration Completed!</h3>
 				<div className="text-center"><button onClick={onClickSignIn} className="btn btn-white"><i class="fas fa-sign-in-alt mr-1"></i>Click here to sign In</button></div>

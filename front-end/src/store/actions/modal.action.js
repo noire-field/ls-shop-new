@@ -20,3 +20,23 @@ export function ModalRegisterComplatedToggle(visible) {
         visible
     }
 }
+
+export function ModalPaymentGuestToggle(visible, item) {
+    return {
+        type: Actions.MODAL_PAYMENT_GUEST_TOGGLE,
+        payload: {
+            visible,
+            item
+        }
+    }
+}
+
+export function ModalPaymentToggle(visible, item) {
+    return {
+        type: Actions.MODAL_PAYMENT_TOGGLE,
+        payload: {
+            visible,
+            item
+        }
+    }
+}

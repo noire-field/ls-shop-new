@@ -52,7 +52,7 @@ function Sidebar(props) {
         <div className={`col-lg-2 ${props.className}`}>
             <div className="sticky-top pt-lg-5 pt-5">
                 <Header className="mb-5"/>
-                <AuthInfo className="mb-2"/>
+                <AuthInfo className="mb-3"/>
                 <h6 className="text-center text-success bg-dark-semi py-2 px-1">
                     <span className="badge badge-danger mr-1">NEW</span>
                     <span>We now accept <span className="font-weight-bold">SMS Payment</span>!</span>

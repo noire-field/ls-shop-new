@@ -62,7 +62,7 @@ function Login() {
         <Modal isOpen={show} onRequestClose={closeModal} style={StyleCompact} contentLabel="Login Modal">
 			<div className="px-lg-5 py-lg-4 px-3 py-4">
 				<h3 className="text-center mb-4">Sign In</h3>
-				<form>
+				<form className="mb-3">
 					<div className="form-group">
 						<label htmlFor="login-username">Username</label>
 						<input ref={refUsername} type="text" className="form-control" id="login-username" placeholder="Username"/>
@@ -77,8 +77,8 @@ function Login() {
 						<button onClick={onClickSignIn} type="submit" className="btn btn-success text-uppercase"><i className="fas fa-sign-in-alt mr-1"></i>Sign In</button>
 					</div>
 				</form>
+				<Error errors={errors}/>
 			</div>
-			<Error errors={errors}/>
       	</Modal>
     );
 }
