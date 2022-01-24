@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import Error from './../Error';
 
 import { AppSetLoading } from './../../store/actions/app.action';
-import { UserLogin } from './../../store/actions/user.action';
+import { UserLogin, UserSetCodeList } from './../../store/actions/user.action';
 import { ModalLoginToggle, ModalRegisterToggle } from './../../store/actions/modal.action';
 
 import { StyleCompact } from './../../utils/modal';
@@ -25,6 +25,7 @@ function Login() {
 
     const closeModal = () => {
         dispatch(ModalLoginToggle(false));
+		setErrors([]);
     }
 
 	const onClickSignUp = (e) => {
@@ -49,6 +50,7 @@ function Login() {
 			if(data.success) {
 				dispatch(UserLogin(data.user_id, data.username, data.credits, data.token));
 				dispatch(StoreSetPayUrl(data.user_id));
+				dispatch(UserSetCodeList(data.myCodes));
 				dispatch(ModalLoginToggle(false));
 			} else {
 				setErrors([data.message]);

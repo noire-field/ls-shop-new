@@ -22,6 +22,7 @@ function Register() {
     let show = useSelector(state => state.modal.register.show);
 
     const closeModal = () => {
+		setErrors([]);
         dispatch(ModalRegisterToggle(false));
     }
 

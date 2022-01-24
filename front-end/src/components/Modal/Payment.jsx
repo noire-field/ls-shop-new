@@ -39,7 +39,7 @@ function Payment() {
 	const onClickPaypal = (e) => {
 		e.preventDefault();
 
-		let paypalLink = `${config.API_URL}/Purchase.php?item_id=${item.id}`;
+		let paypalLink = `${config.API_URL}/Purchase.php?item_id=${item.id}&user_id=${userId}`;
 		window.open(paypalLink, '_blank').focus();
 
 		closeModal();

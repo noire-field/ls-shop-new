@@ -5,28 +5,57 @@ function GuideAndTerms(props) {
         <div className={props.className}>
             <div className="card rounded-0 border-0 mb-3">
                 <div className="card-footer card-footer-shop rounded-0">
-                    <span color="red"><b>Term of Sales:</b></span>
+                    <span color="red"><b>Term Of Sales:</b></span>
                     <ul>
-                        <li>Due to the nature of our products and the access they receive: <b><u>All sales are FINAL. There will not be any kind of refund.</u></b></li>
-                        <li>Charge back will result in you getting banned.</li>
+                        <li>Due to the nature of our products (virtual items): <b><u>All sales are FINAL. There will not be any kind of refund.</u></b></li>
+                        <li>Charging back will result in your account getting banned.</li>
                         <li>Cheating will result in IP and STEAMID ban and your code will be terminated.</li>
-                        <li>Once purchased, please PM FrozeN or any other Staff to get your donator rank on forum</li>
+                        <li>Once purchased, please any of our staffs to get your donator rank on forum</li>
                         <li>Banning players for no reason will lead to your code being terminated and you will be removed/banned from the clan.</li>
                     </ul>
-                    <b>How to buy:</b>
-                    <ol>
-                        <li>Select an item you like and make payment for it.</li>
-                        <li>On success payment, you will receive a short serial code.</li>
-                        <li>Go to game, type /redeem in regular chat then press enter, then write the code you received in the space, after that you will receive your item.</li>
-                        <li>* If you lose your code, contact the owner to assist you. And DO NOT SHARE YOUR CODE!</li>
-                    </ol>
-                    <b>Item activation (redeeming):</b>
+                </div>
+            </div>
+            <div className="card rounded-0 border-0 mb-3">
+                <div className="card-footer card-footer-shop rounded-0">
+                    <div className="row">
+                        <div className="col-lg-6">
+                            <b>How to buy with Paypal</b>
+                            <ol>
+                                <li>Select an item, choose <b>Pay with Paypal</b>. (No Login Required)</li>
+                                <li>Follow the simple guide and complete the payment.</li>
+                                <li>Go to our game servers, type <b>/redeem</b> in regular chat then press enter, then write the code you received when you completed the payment, you will then receive the item.</li>
+                                <li>
+                                    * Please do not share the code to anyone. If you lost the code:<br/>
+                                    - If you were logging in while purchasing the item: Go to <b>My Account</b> to view your code.<br/>
+                                    - If you were not logging in: Contact our admins for assistance.
+                                </li>
+                            </ol>
+                        </div>
+                        <div className="col-lg-6">
+                            <b>How to buy with SMS and Credits</b>
+                            <ol>
+                                <li>Click on <b>Sign In</b> to login first. If you don't have an account, click on <b>Sign Up</b>.</li>
+                                <li>Once you are logged in, click on <b>Buy Credits</b> (on the left sidebar).</li>
+                                <li>You will be redirected to SMS Payment's page, follow the guide and make payments.</li>
+                                <li>Once you bought credits, select an item and choose <b>Pay with Credits</b>, you will receive a code.</li>
+                                <li>Go to our game servers, type <b>/redeem</b> in regular chat then press enter, then write the code you received when you completed the payment, you will then receive the item.</li>
+                                <li>* Please do not share the code to anyone. If you lost the code, go to <b>My Account</b> to view your code.<br/>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div className="card rounded-0 border-0 mb-3">
+                <div className="card-footer card-footer-shop rounded-0">
+                    <b>Item Activation (Code Redeeming):</b>
                     <ul>
-                        <li>For One-time activation items (ex: Ammopacks), upon activation, you will get your AP right away.</li>
+                        <li>For One-time activation items (ex: Ammopacks): Upon activation, you will get your AP right away.</li>
                         <li>
-                            For Long-time activation items (ex: VIP, Admin), upon first activation, the code will be LOCKED to your Steam-ID and you will become VIP/Admin right away.<br/>
+                            For Long-time activation items (ex: 30 days of VIP, Admin), upon first activation, the code will be LOCKED to your Steam-ID and you will become VIP/Admin right away.<br/>
                             * Whenever you join the server, your Admin/VIP gets activated and shows you the time remaining for expiring.<br/>
-                            * Please Note if you bought an Admin you need to read our Clan's rules regarding Admins, Members, Server's, and act upon them. <br/>
+                            * Please Note if you bought an Admin you need to read our clan's rules regarding Admins, Members, Server's, and act upon them. <br/>
                             <span className="text-danger">* VIP and ADMIN can be activated on multiple servers (ZP,ZE,ZI,...), however it will also be LOCKED to the server which it fistly got activated. (Let's say you buy an ADMIN code, and you activate it in ZP server, then you can not use it in ZE server)</span>
                         </li>
                     </ul>

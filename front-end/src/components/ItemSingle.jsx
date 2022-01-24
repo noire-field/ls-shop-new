@@ -21,12 +21,8 @@ function ItemSingle(props) {
                 <div className="d-flex justify-content-between align-items-center px-3 mb-1">
                     <small className="ls-4">PRICE</small>
                     <h5 className="text-center mb-0">
-                        { logged == true && 
-                        <React.Fragment>
-                            <span className="text-warning">{props.price.credit} <i className="fas fa-coins"></i></span>
-                            <span className="text-white"> / </span>
-                        </React.Fragment>
-                        }
+                        <span className="text-warning">{props.price.credit} <i className="fas fa-coins"></i></span>
+                        <span className="text-white"> / </span>
                         <span className="text-danger">{props.price.dollar}$</span>
                     </h5>
                 </div>
