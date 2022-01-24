@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CSSTransition } from 'react-transition-group'
 
+import config from './config.json';
 import './assets/style.scss';
 
 import HomeStore from './pages/HomeStore';
@@ -13,8 +14,8 @@ import axios from './utils/axios';
 import { MapItemsToCategories } from './utils/items';
 
 import { AppSetFetching, AppSetLoading, AppSetStatus } from './store/actions/app.action';
-import { UserLogin } from './store/actions/user.action';
-import { StoreSetCategories } from './store/actions/store.action'
+import { UserLogin, UserSetCodeList } from './store/actions/user.action';
+import { StoreSetCategories, StoreSetPayUrl } from './store/actions/store.action'
 
 function App() {
 	const status = useSelector(state => state.app.status);
@@ -41,6 +42,8 @@ function App() {
 
 						if(data.user) {
 							dispatch(UserLogin(data.user.id, data.user.username, data.user.credits, 'HttpOnly'));
+							dispatch(StoreSetPayUrl(data.user.id));
+							dispatch(UserSetCodeList(data.myCodes));
 						}
 					}
 				}).catch((error) => {

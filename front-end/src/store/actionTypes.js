@@ -7,11 +7,13 @@ export const APP_SET_FETCHING = 'APP_SET_FETCHING';
 // State: Store
 export const STORE_SET_CATEGORIES = 'STORE_SET_CATEGORIES';
 export const STORE_SET_VIEWPAGE = 'STORE_SET_VIEWPAGE';
+export const STORE_SET_PAYURL = 'STORE_SET_PAYURL';
 
 // State: User
 export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGOUT = 'USER_LOGOUT';
 export const USER_SET_CREDITS = 'USER_SET_CREDITS';
+export const USER_SET_CODELIST = 'USER_SET_CODELIST';
 
 // State: Modal
 export const MODAL_LOGIN_TOGGLE = 'MODAL_LOGIN_TOGGLE';

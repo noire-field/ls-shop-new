@@ -5,7 +5,8 @@ const initState = {
     id: -1,
     username: '',
     token: '',
-    credits: 0
+    credits: 0,
+    codes: []
 }
 
 const reducer = function(state = initState, action) {
@@ -16,6 +17,8 @@ const reducer = function(state = initState, action) {
             return { ...state, logged: false, id: -1, username: '', token: '', credits: 0 }
         case Actions.USER_SET_CREDITS:
             return { ...state, credits: action.credits }
+        case Actions.USER_SET_CODELIST:
+            return { ...state, codes: action.codes }
         default: return state;
     }
 }

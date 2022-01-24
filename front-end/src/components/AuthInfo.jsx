@@ -16,6 +16,8 @@ function AuthInfo(props) {
     const viewingPageId = useSelector(state => state.store.viewingPageId);
     const logged = useSelector(state => state.user.logged);
     const credits = useSelector(state => state.user.credits);
+    const payUrl = useSelector(state => state.store.payUrl);
+    const username = useSelector(state => state.user.username);
 
     Logger.Log(`[App][HomeStore][Sidebar][AuthInfo] Render (Viewing Page ID: ${viewingPageId})`);
 
@@ -34,14 +36,14 @@ function AuthInfo(props) {
         <div className={props.className}>
             { logged &&
             <React.Fragment>
-                <div className="d-flex justify-content-between align-items-center text-bigger-115 mb-1">
-                    <p className="mb-0 text-white line-height-125">Welcome, <b className="text-white">Noirefield</b></p>
+                <div className="d-flex justify-content-between align-items-center text-bigger-115 mb-2">
+                    <p className="mb-0 text-white line-height-125">Welcome, <b className="text-white">{username}</b></p>
                     <p className="mb-0 text-white line-height-125">
                         <span className="font-weight-bold text-warning">{FormatNumber(credits)} <i className="fas fa-coins"></i></span>
                     </p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                    <button className={`btn btn-warning btn-block btn-sm mr-1`}><i className="fas fa-mobile-alt mr-1"></i>Buy Credits</button>
+                    <a href={payUrl} className={`btn btn-warning btn-block btn-sm mr-1`}><i className="fas fa-mobile-alt mr-1"></i>Buy Credits</a>
                     <p className="my-2"></p>
                     <button onClick={onClickMyAccount} className={`btn btn-primary btn-block btn-sm ml-1`} disabled={viewingPageId == -2}><i className="fas fa-user mr-1"></i>My Account</button>
                 </div>

@@ -1,5 +1,4 @@
 import config from './../../config.json';
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
@@ -7,7 +6,7 @@ import Modal from 'react-modal';
 import Error from '../Error';
 
 import { AppSetLoading } from './../../store/actions/app.action';
-import { UserSetCredits } from '../../store/actions/user.action';
+import { UserSetCredits, UserSetCodeList } from '../../store/actions/user.action';
 import { ModalPaymentToggle, ModalPaymentCreditCompletedToggle } from './../../store/actions/modal.action';
 
 import axios from './../../utils/axios';
@@ -27,6 +26,7 @@ function Payment() {
     const show = useSelector(state => state.modal.payment.show);
 	const item = useSelector(state => state.modal.payment.item);
 	const userId = useSelector(state => state.user.id);
+	const payUrl = useSelector(state => state.store.payUrl);
 
 	if(!item) return null;
 
@@ -62,6 +62,7 @@ function Payment() {
 			if(data.success) {
 				dispatch(ModalPaymentToggle(false));
 				dispatch(UserSetCredits(data.remainCredits));
+				dispatch(UserSetCodeList(data.myCodes));
 				dispatch(ModalPaymentCreditCompletedToggle(true, item, data.redeemCode));
 			} else {
 				setErrors([data.message]);
@@ -106,7 +107,7 @@ function Payment() {
 				</div>
 				<Error errors={errors}/>
 				{ showTopup && 
-				<button className={`btn btn-warning btn-block btn-sm btn-block mt-2`}><i className="fas fa-mobile-alt mr-1"></i>Click here to buy Credits</button>
+				<a href={payUrl} target='_blank' className={`btn btn-warning btn-block btn-sm btn-block mt-2`}><i className="fas fa-mobile-alt mr-1"></i>Click here to buy Credits</a>
 				}
 			</div>
       	</Modal>

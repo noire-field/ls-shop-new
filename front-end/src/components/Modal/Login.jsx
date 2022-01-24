@@ -11,6 +11,7 @@ import { ModalLoginToggle, ModalRegisterToggle } from './../../store/actions/mod
 import { StyleCompact } from './../../utils/modal';
 import Logger from './../../utils/logger';
 import axios from './../../utils/axios';
+import { StoreSetPayUrl } from "../../store/actions/store.action";
 
 function Login() {
 	Logger.Log(`[App][HomeStore][Sidebar][AuthInfo][Login] Render`);
@@ -47,6 +48,7 @@ function Login() {
 		}).then(({ data }) => {
 			if(data.success) {
 				dispatch(UserLogin(data.user_id, data.username, data.credits, data.token));
+				dispatch(StoreSetPayUrl(data.user_id));
 				dispatch(ModalLoginToggle(false));
 			} else {
 				setErrors([data.message]);

@@ -1,5 +1,5 @@
 function Log(body) {
-    console.log(body);
+    //console.log(body);
 }
 
 export default {

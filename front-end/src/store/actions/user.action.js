@@ -24,3 +24,10 @@ export function UserSetCredits(credits) {
         credits
     }
 }
+
+export function UserSetCodeList(codes) {
+    return {
+        type: Actions.USER_SET_CODELIST,
+        codes
+    }
+}
