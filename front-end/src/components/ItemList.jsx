@@ -6,6 +6,7 @@ import Logger from './../utils/logger';
 import ItemSingle from "./ItemSingle";
 import PaymentGuest from "./Modal/PaymentGuest";
 import Payment from "./Modal/Payment";
+import PaymentCreditCompleted from "./Modal/PaymentCreditCompleted";
 
 import { ModalPaymentGuestToggle, ModalPaymentToggle } from './../store/actions/modal.action';
 
@@ -21,7 +22,7 @@ function ItemList(props) {
     }, [logged]);
 
     var renderContent = props.items.map((item, index) => <div key={index} className="col-lg-3 col-md-4 col-12 mb-4"><ItemSingle onClick={onClickItem.bind(this, item)} title={item.title} price={item.price} image={item.image}/></div>)
-    var payment = logged ? <Payment/> : <PaymentGuest/>
+    var payment = logged ? (<React.Fragment><Payment/><PaymentCreditCompleted/></React.Fragment>) : <PaymentGuest/>
     return (
         <React.Fragment>
             <div className={`row ${props.className}`}>

@@ -17,3 +17,10 @@ export function UserLogout() {
         type: Actions.USER_LOGOUT
     }
 }
+
+export function UserSetCredits(credits) {
+    return {
+        type: Actions.USER_SET_CREDITS,
+        credits
+    }
+}

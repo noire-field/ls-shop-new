@@ -40,3 +40,14 @@ export function ModalPaymentToggle(visible, item) {
         }
     }
 }
+
+export function ModalPaymentCreditCompletedToggle(visible, item, code) {
+    return {
+        type: Actions.MODAL_PAYMENT_CREDIT_COMPLETED_TOGGLE,
+        payload: {
+            visible,
+            item,
+            code
+        }
+    }
+}

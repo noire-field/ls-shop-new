@@ -14,7 +14,9 @@ const initState = {
     },
     payment: {
         show: false,
-        item: null
+        showCreditCompleted: false,
+        item: null,
+        code: ''
     }
 }
 
@@ -29,7 +31,9 @@ const reducer = function(state = initState, action) {
         case Actions.MODAL_PAYMENT_GUEST_TOGGLE:
             return {...state, paymentGuest: { ...state.paymentGuest, show: action.payload.visible, item: action.payload.item }}   
         case Actions.MODAL_PAYMENT_TOGGLE:
-            return {...state, payment: { ...state.payment, show: action.payload.visible, item: action.payload.item }}       
+            return {...state, payment: { ...state.payment, show: action.payload.visible, item: action.payload.item }}   
+        case Actions.MODAL_PAYMENT_CREDIT_COMPLETED_TOGGLE:
+            return {...state, payment: { ...state.payment, showCreditCompleted: action.payload.visible, item: action.payload.item, code: action.payload.code }}   
         default: return state;
     }
 }

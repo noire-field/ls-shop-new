@@ -6,8 +6,11 @@ import Modal from 'react-modal';
 
 import Error from '../Error';
 
-import { ModalPaymentToggle } from './../../store/actions/modal.action';
+import { AppSetLoading } from './../../store/actions/app.action';
+import { UserSetCredits } from '../../store/actions/user.action';
+import { ModalPaymentToggle, ModalPaymentCreditCompletedToggle } from './../../store/actions/modal.action';
 
+import axios from './../../utils/axios';
 import { StyleCompact } from './../../utils/modal';
 import Logger from './../../utils/logger';
 import { FormatNumber } from './../../utils/shared';
@@ -18,14 +21,18 @@ function Payment() {
     const dispatch = useDispatch();
 
 	const [errors, setErrors] = useState([]);
+	const [showTopup, setShowTopup] = useState(false);
 
 	const credits = useSelector(state => state.user.credits);
     const show = useSelector(state => state.modal.payment.show);
 	const item = useSelector(state => state.modal.payment.item);
+	const userId = useSelector(state => state.user.id);
 
 	if(!item) return null;
 
 	const closeModal = () => {
+		setErrors([]);
+		setShowTopup(false);
         dispatch(ModalPaymentToggle(false));
     }
 
@@ -41,7 +48,30 @@ function Payment() {
 	const onClickSMS = (e) => {
 		e.preventDefault();
 
-		
+		setErrors([]);
+		setShowTopup(false);
+
+		if(window.confirm(`Buy ${item.title} with ${item.price.credit} credits?`) != true)
+			return;
+
+		dispatch(AppSetLoading(true));
+		axios.post('/shop-api.php?act=PurchaseWithCredit', {
+			itemId: item.id,
+			userId
+		}).then(({ data }) => {
+			if(data.success) {
+				dispatch(ModalPaymentToggle(false));
+				dispatch(UserSetCredits(data.remainCredits));
+				dispatch(ModalPaymentCreditCompletedToggle(true, item, data.redeemCode));
+			} else {
+				setErrors([data.message]);
+				if(data.topup == true) setShowTopup(true);
+			}
+		}).catch(() => {
+			setErrors(['Unable to connect to server.']);
+		}).finally(() => {
+			dispatch(AppSetLoading(false));
+		})
 	}
 
     return (
@@ -75,6 +105,9 @@ function Payment() {
 					</div>
 				</div>
 				<Error errors={errors}/>
+				{ showTopup && 
+				<button className={`btn btn-warning btn-block btn-sm btn-block mt-2`}><i className="fas fa-mobile-alt mr-1"></i>Click here to buy Credits</button>
+				}
 			</div>
       	</Modal>
     );
