@@ -15,7 +15,7 @@ import { MapItemsToCategories } from './utils/items';
 
 import { AppSetFetching, AppSetLoading, AppSetStatus } from './store/actions/app.action';
 import { UserLogin, UserSetCodeList } from './store/actions/user.action';
-import { StoreSetCategories, StoreSetPayUrl } from './store/actions/store.action'
+import { StoreSetCategories, StoreSetCountries, StoreSetPayUrl } from './store/actions/store.action'
 
 function App() {
 	const status = useSelector(state => state.app.status);
@@ -39,6 +39,7 @@ function App() {
 						dispatch(AppSetFetching(false));
 						dispatch(AppSetLoading(false));
 						dispatch(AppSetStatus(2));
+						dispatch(StoreSetCountries(data.countries));
 
 						if(data.user) {
 							dispatch(UserLogin(data.user.id, data.user.username, data.user.credits, 'HttpOnly'));

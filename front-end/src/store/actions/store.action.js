@@ -21,3 +21,10 @@ export function StoreSetPayUrl(userId) {
         url: `https://pay.fortumo.com/mobile_payments/${config.FORTUMO_SERVICEID}?cuid=${userId}`
     }
 }
+
+export function StoreSetCountries(countries) {
+    return {
+        type: Actions.STORE_SET_COUNTRIES,
+        countries
+    }
+}

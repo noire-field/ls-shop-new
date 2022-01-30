@@ -32,6 +32,14 @@ function AuthInfo(props) {
         dispatch(StoreSetViewPage(-2));
     }
 
+    const onClickBuyCredits = (e) => {
+        e.preventDefault();
+        if(window.confirm('You\'ve already read the sale terms and agree with it?') != true)
+            return;
+
+        window.location.replace(payUrl);
+    }
+
     return (
         <div className={props.className}>
             { logged &&
@@ -43,7 +51,7 @@ function AuthInfo(props) {
                     </p>
                 </div>
                 <div className="d-flex justify-content-between align-items-center">
-                    <a href={payUrl} className={`btn btn-warning btn-block btn-sm mr-1`}><i className="fas fa-mobile-alt mr-1"></i>Buy Credits</a>
+                    <a href='#' onClick={onClickBuyCredits} className={`btn btn-warning btn-block btn-sm mr-1`}><i className="fas fa-mobile-alt mr-1"></i>Buy Credits</a>
                     <p className="my-2"></p>
                     <button onClick={onClickMyAccount} className={`btn btn-primary btn-block btn-sm ml-1`} disabled={viewingPageId == -2}><i className="fas fa-user mr-1"></i>My Account</button>
                 </div>

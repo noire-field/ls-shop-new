@@ -3,7 +3,8 @@ import * as Actions from '../actionTypes';
 const initState = {
     categories: [],
     viewingPageId: 0,
-    payUrl: ''
+    payUrl: '',
+    allowedCountries: []
 }
 
 const reducer = function(state = initState, action) {
@@ -14,6 +15,8 @@ const reducer = function(state = initState, action) {
             return { ...state, viewingPageId: action.pageId }
         case Actions.STORE_SET_PAYURL:
             return { ...state, payUrl: action.url }
+        case Actions.STORE_SET_COUNTRIES:
+            return { ...state, allowedCountries: action.countries }
         default: return state;
     }
 }

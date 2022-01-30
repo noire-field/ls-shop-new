@@ -14,15 +14,6 @@ import { StoreSetViewPage } from './../store/actions/store.action';
 
 import axios from './../utils/axios';
 
-const countryFlags = [
-    'https://assets.fortumo.com/cd/flags/24/br.png',
-    'https://assets.fortumo.com/cd/flags/24/co.png',
-    'https://assets.fortumo.com/cd/flags/24/ec.png',
-    'https://assets.fortumo.com/cd/flags/24/mx.png',
-    'https://assets.fortumo.com/cd/flags/24/uy.png',
-    'https://assets.fortumo.com/cd/flags/24/vn.png'
-]
-
 function Sidebar(props) {
     const dispatch = useDispatch();
 
@@ -30,7 +21,8 @@ function Sidebar(props) {
     const userId = useSelector(state => state.user.id);
     const categories = useSelector(state => state.store.categories);
     const viewingPageId = useSelector(state => state.store.viewingPageId);
-  
+    const allowedCountries = useSelector(state => state.store.allowedCountries);
+    console.log(allowedCountries);
     Logger.Log(`[App][HomeStore][Sidebar] Render (Page ID: ${viewingPageId})`);
 
     const onClickCategory = useCallback((id) => {
@@ -66,7 +58,7 @@ function Sidebar(props) {
                 <h6 className="text-center text-success bg-dark-semi py-2 px-1">
                     <span className="badge badge-danger mr-1">NEW</span>
                     <span>We now accept <span className="font-weight-bold">SMS Payment</span> </span> 
-                    <span>from { countryFlags.map((url, index) => <img key={index} src={url}/>) } </span> 
+                    <span>from { allowedCountries.map((url, index) => <img key={index} src={url}/>) } </span> 
                     <span>If your country is not here, visit our <a href="https://lsgamerz.net" className="font-weight-bold text-warning">forum</a> and make request!</span>
                 </h6>
                 <div className="bg-dark-semi px-2 pt-2 pb-1 mb-2">
